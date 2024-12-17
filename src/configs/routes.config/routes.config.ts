@@ -1,0 +1,262 @@
+import { lazy } from 'react'
+import authRoute from './authRoute'
+import othersRoute from './othersRoute'
+import type { Routes } from '@/@types/routes'
+import { RoleEnum } from '@/generated/graphql'
+
+export const publicRoutes: Routes = [...authRoute]
+
+export const protectedRoutes: Routes = [
+    {
+        key: 'home',
+        path: '/dashboard',
+        component: lazy(() => import('@/views/dashboard')),
+        authority: [
+            RoleEnum.SuperAdmin,
+            RoleEnum.MahalluAdmin,
+            RoleEnum.DistrictAdmin,
+            RoleEnum.InfoAdmin,
+            RoleEnum.VillageAdmin,
+            RoleEnum.ZoneAdmin,
+        ],
+    },
+    {
+        key: 'leaderboard',
+        path: '/leaderboard',
+        component: lazy(() => import('@/views/app/leaderboard')),
+        authority: [
+            RoleEnum.SuperAdmin,
+            RoleEnum.DistrictAdmin,
+            RoleEnum.ZoneAdmin,
+            RoleEnum.VillageAdmin,
+            RoleEnum.MahalluAdmin,
+        ],
+    },
+    {
+        key: 'settings',
+        path: '/settings',
+        component: lazy(() => import('@/views/app/Settings')),
+        authority: [ RoleEnum.SuperAdmin,
+            RoleEnum.MahalluAdmin,
+            RoleEnum.DistrictAdmin,
+            RoleEnum.InfoAdmin,
+            RoleEnum.VillageAdmin,
+            RoleEnum.ZoneAdmin, ],
+    },
+    {
+        key: 'notifications',
+        path: '/notifications',
+        component: lazy(() => import('@/views/app/mail/Mail')),
+        authority: [
+            RoleEnum.SuperAdmin,
+            RoleEnum.MahalluAdmin,
+            RoleEnum.DistrictAdmin,
+            RoleEnum.InfoAdmin,
+            RoleEnum.VillageAdmin,
+            RoleEnum.ZoneAdmin,
+        ],
+    },
+    {
+        key: 'mahallus',
+        path: '/mahallus',
+        component: lazy(() => import('@/views/app/mahallus')),
+        authority: [
+            RoleEnum.SuperAdmin,
+            RoleEnum.DistrictAdmin,
+            RoleEnum.ZoneAdmin,
+            RoleEnum.VillageAdmin,
+        ],
+    },
+    {
+        key: 'mahallu-details',
+        path: '/mahallu-details/:id',
+        component: lazy(() => import('@/views/app/ViewDetailedMahallu')),
+        authority: [
+            RoleEnum.SuperAdmin,
+            RoleEnum.DistrictAdmin,
+            RoleEnum.ZoneAdmin,
+            RoleEnum.VillageAdmin,
+        ],
+    },
+    {
+        key: 'answer-fatwa',
+        path: '/answer-fatwa',
+        component: lazy(() => import('@/views/app/fatwa-answer-portal')),
+        authority: [RoleEnum.InfoAdmin],
+    },
+    {
+        key: 'answer-fatwa-id',
+        path: '/answer-fatwa/:id',
+        component: lazy(() => import('@/views/app/answer-fatwa')),
+        authority: [RoleEnum.InfoAdmin],
+    },
+    {
+        key: 'view-tasks',
+        path: '/view-tasks',
+        component: lazy(() => import('@/views/app/view-tasks')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'view-other-programs',
+        path: '/view-other-programs',
+        component: lazy(() => import('@/views/app/view-other-programs')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'submit-task',
+        path: '/submit-task/:id',
+        component: lazy(() => import('@/views/app/submit-task')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'submit-other-program',
+        path: '/submit-other-program',
+        component: lazy(() => import('@/views/app/submit-other-program')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'verify-tasks',
+        path: '/verify-tasks',
+        component: lazy(() => import('@/views/app/verify-tasks')),
+        authority: [RoleEnum.VillageAdmin],
+    },
+    {
+        key: 'verify-task',
+        path: '/verify-task/:id',
+        component: lazy(() => import('@/views/app/verify-task')),
+        authority: [RoleEnum.VillageAdmin],
+    },
+    {
+        key: 'verify-other-programs',
+        path: '/verify-other-programs',
+        component: lazy(() => import('@/views/app/verify-other-programs')),
+        authority: [RoleEnum.VillageAdmin],
+    },
+    {
+        key: 'verify-other-program',
+        path: '/verify-other-program/:id',
+        component: lazy(() => import('@/views/app/verify-other-program')),
+        authority: [RoleEnum.VillageAdmin],
+    },
+    {
+        key: 'collapseMenu.item1',
+        path: '/collapse-menu-item-view-1',
+        component: lazy(() => import('@/views/app/CollapseMenuItemView1')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'collapseMenu.item2',
+        path: '/collapse-menu-item-view-2',
+        component: lazy(() => import('@/views/app/CollapseMenuItemView2')),
+        authority: [RoleEnum.MahalluAdmin, RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'groupMenu.single',
+        path: '/group-single-menu-item-view',
+        component: lazy(() => import('@/views/app/GroupSingleMenuItemView')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'groupMenu.collapse.item1',
+        path: '/group-collapse-menu-item-view-1',
+        component: lazy(() => import('@/views/app/GroupCollapseMenuItemView1')),
+        authority: [RoleEnum.MahalluAdmin, RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'groupMenu.collapse.item2',
+        path: '/group-collapse-menu-item-view-2',
+        component: lazy(() => import('@/views/app/GroupCollapseMenuItemView2')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'district',
+        path: '/district',
+        component: lazy(() => import('@/views/app/district')),
+        authority: [RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'zone',
+        path: '/zone',
+        component: lazy(() => import('@/views/app/zone')),
+        authority: [RoleEnum.SuperAdmin, RoleEnum.DistrictAdmin],
+    },
+    {
+        key: 'village',
+        path: '/village',
+        component: lazy(() => import('@/views/app/village')),
+        authority: [RoleEnum.SuperAdmin, RoleEnum.ZoneAdmin],
+    },
+    {
+        key: 'mahallu',
+        path: '/mahallu',
+        component: lazy(() => import('@/views/app/mahallu')),
+        authority: [RoleEnum.SuperAdmin, RoleEnum.VillageAdmin],
+    },
+    {
+        key: 'family',
+        path: '/family',
+        component: lazy(() => import('@/views/app/family')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'family-details',
+        path: '/family/:id',
+        component: lazy(() => import('@/views/app/family-details')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'committee',
+        path: '/committee',
+        component: lazy(() => import('@/views/app/committee')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'year',
+        path: '/year',
+        component: lazy(() => import('@/views/app/year')),
+        authority: [RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'badge',
+        path: '/badge',
+        component: lazy(() => import('@/views/app/badge')),
+        authority: [RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'campaign',
+        path: '/campaign',
+        component: lazy(() => import('@/views/app/campaign')),
+        authority: [RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'task',
+        path: '/task',
+        component: lazy(() => import('@/views/app/task')),
+        authority: [RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'task-category',
+        path: '/task-category',
+        component: lazy(() => import('@/views/app/task-category')),
+        authority: [RoleEnum.SuperAdmin],
+    },
+    {
+        key: 'event',
+        path: '/event',
+        component: lazy(() => import('@/views/app/event')),
+        authority: [RoleEnum.SuperAdmin, RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'job',
+        path: '/job',
+        component: lazy(() => import('@/views/app/job')),
+        authority: [RoleEnum.SuperAdmin, RoleEnum.MahalluAdmin],
+    },
+    {
+        key: 'post',
+        path: '/post',
+        component: lazy(() => import('@/views/app/post')),
+        authority: [RoleEnum.MahalluAdmin],
+    },
+    ...othersRoute,
+]

@@ -1,0 +1,60 @@
+import {
+    PiHouseLineDuotone,
+    PiArrowsInDuotone,
+    PiBookOpenUserDuotone,
+    PiBookBookmarkDuotone,
+    PiAcornDuotone,
+    PiBagSimpleDuotone,
+    PiKanbanDuotone,
+    PiMosqueDuotone,
+    PiNotificationDuotone,
+    PiBracketsSquareDuotone,
+    PiGlobeSimpleXDuotone,
+    PiGlobeSimpleDuotone,
+    PiCalendarBlankDuotone,
+    PiContactlessPaymentDuotone,
+    PiBellDuotone,
+    PiCircleNotchDuotone,
+    PiCheckFatDuotone,
+    PiChecksDuotone,
+    PiCertificateDuotone,
+    PiSuitcaseDuotone,
+    PiTagChevronDuotone,
+    PiNotePencilDuotone,
+    PiUsersFourDuotone,
+    PiUsersDuotone,
+    PiCirclesFourDuotone,
+    PiChartBarDuotone,
+    PiCheckCircleDuotone
+} from 'react-icons/pi'
+
+export type NavigationIcons = Record<string, JSX.Element>
+
+const navigationIcon: NavigationIcons = {
+    dashboard: <PiKanbanDuotone />,
+    mahallu: <PiMosqueDuotone />,
+    district: <PiBracketsSquareDuotone />,
+    zone: <PiGlobeSimpleDuotone />,
+    year: <PiCalendarBlankDuotone />,
+    notification: <PiBellDuotone />,
+    campaign: <PiCircleNotchDuotone />,
+    home: <PiHouseLineDuotone />,
+    singleMenu: <PiAcornDuotone />,
+    collapseMenu: <PiArrowsInDuotone />,
+    groupSingleMenu: <PiBookOpenUserDuotone />,
+    groupCollapseMenu: <PiBookBookmarkDuotone />,
+    groupMenu: <PiBagSimpleDuotone />,
+    badge: <PiCertificateDuotone />,
+    task: <PiCheckFatDuotone />,
+    otherProgram: <PiCirclesFourDuotone />,
+    taskCategory: <PiChecksDuotone />,
+    job: <PiSuitcaseDuotone />,
+    event: <PiTagChevronDuotone />,
+    post: <PiNotePencilDuotone />,
+    committee: <PiUsersDuotone />,
+    family: <PiUsersFourDuotone />,
+    leaderBoard:<PiChartBarDuotone/>,
+    verify:<PiCheckCircleDuotone/>
+}
+
+export default navigationIcon

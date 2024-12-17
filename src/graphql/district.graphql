@@ -1,0 +1,6 @@
+query FindAllDistricts($limit: Int, $offset: Int) {
+  districts(limit: $limit, offset: $offset) {
+    id
+    name
+  }
+}

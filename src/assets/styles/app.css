@@ -1,0 +1,29 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"); */
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import "./components/index.css";
+@import "./template/index.css";
+@import "./vendors/index.css";
+@import "./tailwind/index.css";
+
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #eceeec;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c1c4c1
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b1b3b1;
+  }
+  
